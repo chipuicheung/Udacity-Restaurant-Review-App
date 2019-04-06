@@ -49,7 +49,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #footer {
   background-color: #444;
   color: #aaa;
-  font-size: 8pt;
+  font-size: 10px;
   letter-spacing: 1px;
   padding: 25px;
   text-align: center;
@@ -237,11 +237,6 @@ nav h1 a {
   margin: auto;
 }
 
-.inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
 #restaurant-name {
   color: #f44336;
   font-family: 'Roboto', sans-serif;

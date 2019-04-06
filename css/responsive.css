@@ -117,6 +117,10 @@
   width: 80%;
   margin: 80px auto 10px;
   }
+
+  #footer {
+    max-width: 350px;
+  }
 }
 
 
