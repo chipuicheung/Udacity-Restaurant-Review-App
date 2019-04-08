@@ -1,7 +1,6 @@
-let staticCacheName = 'review-app-v1';
 self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open(staticCacheName).then(function (cache) {
+    caches.open('review-app-v1').then(function (cache) {
       return cache.addAll([
         '/',
         '/index.html',
@@ -27,22 +26,10 @@ self.addEventListener('install', function (event) {
   )
 });
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      if (response) {
-        return response;
-      } else {
-        return fetch(event.request)
-          .then(function (response) {
-            caches.open(staticCacheName).then(function (cache) {
-              cache.put(event.request, response);
-            })
-          })
-          .catch(function (err) {
-            console.error(err);
-          })
-      }
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
     })
-  )
+  );
 });
